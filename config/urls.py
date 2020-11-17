@@ -38,7 +38,7 @@ urlpatterns = [
     # Django Admin
     path(settings.ADMIN_URL, admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    #path('products/', include('clicoh.products', namespace='products')),
+    path('products/', include(('clicoh.products.urls', 'products'), namespace='products')),
     #path('sales/', include('clicoh.sales', namespace='sales')),
 
 
