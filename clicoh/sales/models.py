@@ -12,6 +12,17 @@ class Order(models.Model):
 
     date_time = models.DateTimeField()
 
+    @classmethod
+    def get_total(cls, order_id):
+        """Get total method.
+
+        Calculate the total price of the order.
+        """
+        order = cls.objects.get(id=order_id)
+        details = OrderDetail.objects.filter(order=order)
+
+        return sum([i.price * i.cuantity for i in details])
+
 
 class OrderDetail(models.Model):
     """Order Detail model.
