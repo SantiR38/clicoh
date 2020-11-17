@@ -2,4 +2,4 @@
 
 export COMPOSE_FILE=local.yml
 
-sudo docker rm -f clicoh_django_1
+sudo docker rm -f prueba_clicoh_django_1
