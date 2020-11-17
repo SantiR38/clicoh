@@ -46,7 +46,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'clicoh.products'
+    'clicoh.products',
+    'clicoh.sales',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

@@ -6,4 +6,6 @@ from django.apps import AppConfig
 
 class ProductsConfig(AppConfig):
     """Product config app."""
-    name = 'products'
+    
+    name = 'clicoh.products'
+    verbose_name = 'products'
