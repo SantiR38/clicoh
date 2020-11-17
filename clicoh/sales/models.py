@@ -33,9 +33,9 @@ class OrderDetail(models.Model):
     order = models.ForeignKey('sales.Order', related_name='details', on_delete=models.CASCADE)
     cuantity = models.IntegerField()
     price = models.FloatField()
-    product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
+    product = models.OneToOneField('products.Product', on_delete=models.CASCADE)
 
     def __str__(self):
         """Order Detail string representation."""
-        
+
         return '%d, %s, %f' % (self.cuantity, self.product, self.price)
