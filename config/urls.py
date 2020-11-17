@@ -39,7 +39,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('products/', include(('clicoh.products.urls', 'products'), namespace='products')),
-    #path('sales/', include('clicoh.sales', namespace='sales')),
+    path('sales/', include(('clicoh.sales.urls', 'sales'), namespace='sales')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

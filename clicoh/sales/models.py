@@ -30,7 +30,12 @@ class OrderDetail(models.Model):
     Primary key will be created automatically and inevitably.
     """
 
-    order = models.ForeignKey('sales.Order', on_delete=models.CASCADE)
+    order = models.ForeignKey('sales.Order', related_name='details', on_delete=models.CASCADE)
     cuantity = models.IntegerField()
     price = models.FloatField()
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
+
+    def __str__(self):
+        """Order Detail string representation."""
+        
+        return '%d, %s, %f' % (self.cuantity, self.product, self.price)
