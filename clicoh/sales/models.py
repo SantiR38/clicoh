@@ -9,19 +9,16 @@ class Order(models.Model):
 
     Primary key will be created automatically and inevitably.
     """
-
     date_time = models.DateTimeField()
 
     @classmethod
-    def get_total(cls, order_id):
+    def get_total(self, obj):
         """Get total method.
 
         Calculate the total price of the order.
         """
-        order = cls.objects.get(id=order_id)
-        details = OrderDetail.objects.filter(order=order)
-
-        return sum([i.price * i.cuantity for i in details])
+        details = OrderDetail.objects.filter(order=obj)
+        return sum([i.product.price * i.cuantity for i in details])
 
 
 class OrderDetail(models.Model):
@@ -39,3 +36,12 @@ class OrderDetail(models.Model):
         """Order Detail string representation."""
 
         return '%d, %s, %f' % (self.cuantity, self.product, self.price)
+    
+    @classmethod
+    def get_product_price(cls, product):
+        """Get product price,
+
+        and put it on the order detail price.
+        """
+
+        return product.price
