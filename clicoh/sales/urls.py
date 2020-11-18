@@ -11,6 +11,7 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'', views.OrderViewSet, basename='sale')
+router.register(r'order_detail', views.OrderDetailedViewSet, basename='sale_detail')
 
 urlpatterns = [
 
