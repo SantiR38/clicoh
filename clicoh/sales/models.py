@@ -26,7 +26,7 @@ class OrderDetail(models.Model):
     """
 
     order = models.ForeignKey('sales.Order', related_name='details', on_delete=models.CASCADE)
-    cuantity = models.IntegerField()
+    cuantity = models.PositiveIntegerField()
     price = models.FloatField(null=True)
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
     
