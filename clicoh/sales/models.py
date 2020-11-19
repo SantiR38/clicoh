@@ -5,10 +5,8 @@ from django.db import models
 
 
 class Order(models.Model):
-    """Order model.
-
-    Primary key will be created automatically and inevitably.
-    """
+    """Order model."""
+    id = models.AutoField(primary_key=True)
     date_time = models.DateTimeField()
 
     @classmethod
@@ -18,7 +16,7 @@ class Order(models.Model):
         Calculate the total price of the order.
         """
         details = OrderDetail.objects.filter(order=obj)
-        return sum([i.product.price * i.cuantity for i in details])
+        return sum([i.price * i.cuantity for i in details])
 
 
 class OrderDetail(models.Model):
@@ -29,19 +27,15 @@ class OrderDetail(models.Model):
 
     order = models.ForeignKey('sales.Order', related_name='details', on_delete=models.CASCADE)
     cuantity = models.IntegerField()
-    price = models.FloatField()
-    product = models.OneToOneField('products.Product', on_delete=models.CASCADE)
-
-    def __str__(self):
-        """Order Detail string representation."""
-
-        return '%d, %s, %f' % (self.cuantity, self.product, self.price)
+    price = models.FloatField(null=True)
+    product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
     
     @classmethod
-    def get_product_price(cls, product):
+    def get_product_price(cls, obj, product):
         """Get product price,
 
         and put it on the order detail price.
         """
-
-        return product.price
+        obj.price = product.price
+        obj.save()
+        return obj.price
