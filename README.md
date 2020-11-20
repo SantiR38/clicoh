@@ -13,38 +13,24 @@ For running this project it will be necesary to **download and install** the fol
   3. [Git](https://git-scm.com/download/win).
   4. [Pip](https://www.neoguias.com/como-instalar-pip-python/#Como_instalar_PIP_en_Windows).
 
+Next steps:
 
-**Clone this project** in your local machine:
+  5. **Clone this project** in your local machine: Use `git clone` and the url of this project.
 
-  5. Use `git clone` and the url of this project.
+  6. **Create the database in postgres** with the data in config.
 
-
-Make sure that **enviroment variables** are created. If not:
-
-  6. Create the following files in `[root_directory]/.envs/.local/`: `.django` and `.postgres`.
-  7. Declare the variables.
-    
-    .postgres:
-      * POSTGRES_HOST
-      * POSTGRES_PORT
-      * POSTGRES_DB
-      * POSTGRES_USER
-      * POSTGRES_PASSWORD
-
-  8. Create the **virtual enviroment**
+  7. Create the **virtual enviroment**
 
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
 
-  9. Install dependencies ```pip install -r requirements/local.txt```
+  8. Install dependencies ```pip install -r requirements/local.txt```
 
-  10.
+  9. Migrate to your database: `$ python manage.py migrate`.
 
-Next, you have to **create a superuser**:
-
-  8. `$ python manage.py createsuperuser`.
+  10. Next, you have to **create a superuser**: `$ python manage.py createsuperuser`.
 
 
 ## Endpoints

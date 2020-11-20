@@ -18,6 +18,19 @@ ALLOWED_HOSTS = [
     "18.222.126.99",
 ]
 
+# DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'clicoh',
+        'USER': 'postgres',
+        'PASSWORD': 'admin1234',
+        'HOST': '127.0.0.1',
+        'DATABASE_PORT': '5432',
+    }
+}
+DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 # Templates
 TEMPLATES[0]['OPTIONS']['debug'] = DEBUG  # NOQA
 

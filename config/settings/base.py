@@ -18,19 +18,6 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# DATABASES
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'clicoh',
-        'USER': 'postgres',
-        'PASSWORD': 'admin1234',
-        'HOST': '127.0.0.1',
-        'DATABASE_PORT': '5432',
-    }
-}
-DATABASES['default']['ATOMIC_REQUESTS'] = True
-
 # URLs
 ROOT_URLCONF = 'config.urls'
 
