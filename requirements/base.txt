@@ -1,7 +1,6 @@
 # Base
 pytz==2018.7
 python-slugify==1.2.6
-Pillow==5.3.0
 psycopg2-binary==2.8.5
 
 # Django
@@ -16,9 +15,6 @@ django-environ==0.4.5
 
 # Passwords security
 argon2-cffi==20.1.0
-
-# Static files
-whitenoise==4.1.2
 
 # Cross-domain requests
 django-cors-middleware==1.5.0

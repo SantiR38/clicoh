@@ -31,9 +31,16 @@ Make sure that **enviroment variables** are created. If not:
       * POSTGRES_USER
       * POSTGRES_PASSWORD
 
-Create the **virtual enviroment**
+  8. Create the **virtual enviroment**
 
-  8. 
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+  9. Install dependencies ```pip install -r requirements/local.txt```
+
+  10.
 
 Next, you have to **create a superuser**:
 
