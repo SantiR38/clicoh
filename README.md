@@ -26,7 +26,7 @@ Next steps:
     source venv/bin/activate
     ```
 
-  8. Install dependencies ```pip install -r requirements/local.txt```
+  8. Install dependencies ```pip install requirements.txt```
 
   9. Migrate to your database: `$ python manage.py migrate`.
 
