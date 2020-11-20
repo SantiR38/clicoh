@@ -67,3 +67,41 @@ Next, you have to **create a superuser**:
   2. Remove postgres volume: `source bash/remove_postgres.sh`.
   3. Create migrations: `source bash/django/makemigrations.sh` and `source bash/django/migrate.sh`.
   4. Run again the compose: `$ source bash/up.sh`.
+
+## Endpoints
+
+| Resource           | POST            | GET               | PUT             | DELETE          |
+| :----              |     :-----:     |      :-----:      |     :-----:     |     :-----:     |
+| {host}/product/    | Create product* | List Products     |                 |                 |
+| {host}/product/123 |                 | Retrieve Product  | Update product  | Delete product  |
+| {host}/sales/      | Create sales*#  | List sales        |                 |                 |
+| {host}/sales/123   |                 | Retrieve sale     | Update sale#    | Delete sale     |
+
+[*] For post, the JSON structure is the following:
+
+**Create Product:**
+```json
+{
+    "id": "B12MX",
+    "name": "Product name",
+    "price": 100
+}
+```
+
+**Create Sale:**
+```json
+{
+    "date_time": "2020-09-09 08:00",
+    "details": [
+        {
+            "cuantity": 1,
+            "product_id": "1"
+        },
+        {
+            "cuantity": 2,
+            "product_id": "2"
+        }
+    ]
+}
+```
+[#] The endpoint is not working properly at the moment.
