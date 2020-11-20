@@ -31,11 +31,11 @@ class OrderDetail(models.Model):
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
     
     @classmethod
-    def get_product_price(cls, obj, product):
+    def get_product_price(cls, obj, product_price):
         """Get product price,
 
         and put it on the order detail price.
         """
-        obj.price = product.price
+        obj.price = product_price
         obj.save()
         return obj.price
